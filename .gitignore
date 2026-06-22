@@ -1,0 +1,12 @@
+# Локальные файлы состояния и кэш Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+
+# Секретные ключи и переменные (КРИТИЧЕСКИ ВАЖНО)
+key.json
+*.tfvars
+
+# Файлы конфигурации и временные файлы
+*.retry

@@ -1,0 +1,22 @@
+---
+- name: Install Nginx for proxy
+  ansible.builtin.apt:
+    name: nginx
+    state: present
+
+- name: Remove default Nginx config
+  ansible.builtin.file:
+    path: /etc/nginx/sites-enabled/default
+    state: absent
+
+- name: Deploy Nginx proxy configuration
+  ansible.builtin.template:
+    src: proxy.conf.j2
+    dest: /etc/nginx/sites-enabled/proxy.conf
+  notify: Restart Nginx
+
+- name: Ensure Nginx is running
+  ansible.builtin.systemd:
+    name: nginx
+    state: started
+    enabled: yes
