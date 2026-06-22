@@ -3,8 +3,7 @@
   hosts: web_servers
   become: true
   roles:
-    - hostname
-    - packages
+    - base_setup
 
 - name: Configure Backend Web Pages
   hosts: vm-2,vm-3

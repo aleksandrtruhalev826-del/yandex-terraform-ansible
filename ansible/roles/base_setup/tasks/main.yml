@@ -8,3 +8,15 @@
     path: /etc/hosts
     regexp: '^127\.0\.1\.1'
     line: "127.0.1.1 {{ inventory_hostname }}"
+
+- name: Update apt cache and install required utilities
+  ansible.builtin.apt:
+    name:
+      - net-tools
+      - dnsutils
+      - wget
+      - curl
+      - mc
+      - rsync
+    state: present
+    update_cache: yes
