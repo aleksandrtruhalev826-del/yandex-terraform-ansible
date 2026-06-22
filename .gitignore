@@ -10,3 +10,4 @@ key.json
 
 # Файлы конфигурации и временные файлы
 *.retry
+.vault_pass.txt
