@@ -1,13 +1,21 @@
-# Локальные файлы состояния и кэш Terraform
+# Игнорируем секретные ключи Яндекс Облака в любых папках
+**/key.json
+*.tfvars
+**/*.tfvars
+
+# Игнорируем любые файлы приватных или публичных SSH-ключей, если они скопированы в проект
+**/*id_ed25519*
+**/*id_rsa*
+*.pub
+
+# Временные пароли и vault-файлы Ansible (если они не зашифрованы)
+.vault_pass.txt
+**/.vault_pass.txt
+
+# Локальный кэш и стейт Terraform
 .terraform/
+**/ .terraform/
 *.tfstate
 *.tfstate.*
 .terraform.lock.hcl
-
-# Секретные ключи и переменные (КРИТИЧЕСКИ ВАЖНО)
-key.json
-*.tfvars
-
-# Файлы конфигурации и временные файлы
-*.retry
-.vault_pass.txt
+**/ .terraform.lock.hcl
